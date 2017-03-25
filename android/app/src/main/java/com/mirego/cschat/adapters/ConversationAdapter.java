@@ -18,6 +18,8 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import jp.wasabeef.glide.transformations.CropCircleTransformation;
+import us.feras.mdv.MarkdownView;
+
 
 public class ConversationAdapter extends RecyclerView.Adapter<ConversationAdapter.ConversationViewHolder> {
 
@@ -57,7 +59,7 @@ public class ConversationAdapter extends RecyclerView.Adapter<ConversationAdapte
                 if (messageViewData.username() != null) {
                     holder.tvTitle.setText(messageViewData.username());
                 }
-                holder.tvLastMessage.setText(messageViewData.message());
+                holder.tvLastMessage.loadMarkdown(messageViewData.message());
                 holder.tvTimestamp.setText(messageViewData.timestamp());
                 Glide.with(context).load(messageViewData.avatarUrl()).placeholder(R.drawable.img_profile).bitmapTransform(new CropCircleTransformation(context)).into(holder.ivAvatar);
             }
@@ -86,7 +88,7 @@ public class ConversationAdapter extends RecyclerView.Adapter<ConversationAdapte
         TextView tvTitle;
 
         @BindView(R.id.tv_conversation_last_message)
-        TextView tvLastMessage;
+        MarkdownView tvLastMessage;
 
         @BindView(R.id.tv_conversation_timestamp)
         TextView tvTimestamp;

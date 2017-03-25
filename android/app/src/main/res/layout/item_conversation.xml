@@ -45,8 +45,8 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Maurice Richard" />
 
-    <TextView
-        android:id="@+id/tv_conversation_last_message"
+    <us.feras.mdv.MarkdownView
+    android:id="@+id/tv_conversation_last_message"
         fontPath="@string/font_lato_regular"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

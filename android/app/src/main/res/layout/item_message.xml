@@ -45,7 +45,7 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:text="20:43" />
 
-    <TextView
+    <us.feras.mdv.MarkdownView
         android:id="@+id/tv_message"
         fontPath="@string/font_lato_regular"
         android:layout_width="0dp"
