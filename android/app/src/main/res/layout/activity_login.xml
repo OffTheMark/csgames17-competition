@@ -66,10 +66,12 @@
         android:id="@+id/btn_login_submit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/til_password"
         android:text="@string/login_submit"
         android:theme="@style/OrangeButton"
-        app:layout_marginTopPercent="6%" />
+        app:layout_marginTopPercent="6%"
+        android:layout_below="@+id/til_password"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="32dp" />
 
 
 </android.support.percent.PercentRelativeLayout>

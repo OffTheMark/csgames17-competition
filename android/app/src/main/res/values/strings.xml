@@ -16,5 +16,8 @@
     <string name="send">Send</string>
     <string name="send_message_hint">Type a message...</string>
     <string name="login_loading">Logging in...</string>
+    <string name="register_loading">Registering...</string>
+    <string name="register_done">You can now logging using your username and password!</string>
     <string name="not_implemented_yet">Not implemented yet!</string>
+    <string name="title_activity_register">RegisterActivity</string>
 </resources>

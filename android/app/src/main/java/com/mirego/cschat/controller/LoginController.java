@@ -2,6 +2,7 @@ package com.mirego.cschat.controller;
 
 import com.mirego.cschat.models.request.LoginRequest;
 import com.mirego.cschat.models.User;
+import com.mirego.cschat.models.request.RegisterRequest;
 import com.mirego.cschat.services.CSChatService;
 import com.mirego.cschat.services.StorageService;
 
@@ -27,6 +28,11 @@ public class LoginController {
 
     public void saveUserId(String userId) {
         storageService.storeUserId(userId);
+    }
+
+    public Flowable<User> register(String username, String password, String url)
+    {
+        return chatService.register(new RegisterRequest(username, password, url));
     }
 
 }
