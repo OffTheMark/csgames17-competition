@@ -28,7 +28,7 @@ class AndroidModule {
     Retrofit provideRetrofit() {
         return new Retrofit.Builder()
                 // TODO: Changer pour votre propre serveur
-                .baseUrl("http://10.240.193.56:3000")
+                .baseUrl("http://9641bdcf.ngrok.io")
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();

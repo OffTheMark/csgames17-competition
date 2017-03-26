@@ -26,6 +26,7 @@ import com.mirego.cschat.adapters.MessageAdapter;
 import com.mirego.cschat.controller.ConversationController;
 import com.mirego.cschat.viewdatas.ConversationViewData;
 import com.mirego.cschat.viewdatas.MessageViewData;
+import com.mirego.cschat.viewdatas.UserViewData;
 
 import java.util.List;
 

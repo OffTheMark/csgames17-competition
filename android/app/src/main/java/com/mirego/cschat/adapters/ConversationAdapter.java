@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide;
 import com.mirego.cschat.R;
 import com.mirego.cschat.viewdatas.ConversationViewData;
 import com.mirego.cschat.viewdatas.MessageViewData;
+import com.mirego.cschat.viewdatas.UserViewData;
 
 import java.util.List;
 
