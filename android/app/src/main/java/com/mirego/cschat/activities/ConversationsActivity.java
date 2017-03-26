@@ -11,11 +11,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.mirego.cschat.CSChatApplication;
 import com.mirego.cschat.R;
 import com.mirego.cschat.adapters.ConversationAdapter;
+import com.mirego.cschat.controller.ConversationController;
 import com.mirego.cschat.controller.ConversationsController;
 import com.mirego.cschat.controller.LoginController;
 import com.mirego.cschat.viewdatas.ConversationViewData;
@@ -48,6 +48,9 @@ public class ConversationsActivity extends BaseActivity implements ConversationA
 
     @Inject
     LoginController loginController;
+
+    @Inject
+    ConversationController convoController;
 
     private ConversationAdapter conversationAdapter;
 
@@ -116,11 +119,42 @@ public class ConversationsActivity extends BaseActivity implements ConversationA
 
     @OnClick(R.id.fab_add_conversation)
     public void onAddConversationClicked() {
-        Toast.makeText(this, getString(R.string.not_implemented_yet), Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, CreateConversationActivity.class);
+        startActivityForResult(intent, 1);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 1) {
+            if (resultCode == RESULT_OK) {
+                String userId = data.getStringExtra(CreateConversationActivity.EXTRA_USER_ID);
+                // The call doesn't work but we got so far
+                //createConversation(userId);
+            }
+        }
     }
 
     @Override
     public void onConversationClicked(ConversationViewData conversationViewData) {
         startActivity(ConversationActivity.intent(this, conversationViewData.id()));
+    }
+
+    private void createConversation(String userId) {
+        convoController.createConversation(userId)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.newThread())
+                .subscribe(new Consumer<List<ConversationViewData>>() {
+                    @Override
+                    public void accept(@NonNull List<ConversationViewData> conversationViewDatas) throws Exception {
+                        fetchConversations();
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(@NonNull Throwable throwable) throws Exception {
+                        // todo
+                    }
+                });
     }
 }

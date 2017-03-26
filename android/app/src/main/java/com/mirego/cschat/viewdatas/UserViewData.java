@@ -18,6 +18,13 @@ public class UserViewData {
         this.context = context;
     }
 
+    public String id() {
+        if (user != null) {
+            return user.getId();
+        }
+        return null;
+    }
+
     public String username() {
         if (user != null) {
             return user.getUsername();

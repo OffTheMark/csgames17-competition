@@ -2,6 +2,7 @@ package com.mirego.cschat;
 
 import com.mirego.cschat.activities.ConversationActivity;
 import com.mirego.cschat.activities.ConversationsActivity;
+import com.mirego.cschat.activities.CreateConversationActivity;
 import com.mirego.cschat.activities.HomeActivity;
 import com.mirego.cschat.activities.LoginActivity;
 
@@ -19,4 +20,6 @@ public interface ApplicationComponent {
     void inject(ConversationsActivity conversationsActivity);
 
     void inject(ConversationActivity conversationActivity);
+
+    void inject(CreateConversationActivity createConversationActivity);
 }

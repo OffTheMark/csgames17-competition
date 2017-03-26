@@ -18,4 +18,7 @@
     <string name="login_loading">Logging in...</string>
     <string name="not_implemented_yet">Not implemented yet!</string>
     <string name="enter_username">Enter username</string>
+    <string name="create">Create</string>
+    <string name="create_conversation_hint">Type a username...</string>
+    <string name="users">Users</string>
 </resources>

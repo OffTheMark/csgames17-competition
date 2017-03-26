@@ -5,6 +5,9 @@ import com.mirego.cschat.models.request.CreateConversationRequest;
 import com.mirego.cschat.models.request.CreateMessageRequest;
 import com.mirego.cschat.models.request.LoginRequest;
 import com.mirego.cschat.models.response.ConversationsResponse;
+import com.mirego.cschat.models.response.UsersResponse;
+
+import java.util.List;
 
 import io.reactivex.Flowable;
 import retrofit2.http.Body;
@@ -29,4 +32,6 @@ public interface CSChatService {
     @POST("api/users/{userId}/conversations/{conversationId}")
     Flowable<ConversationsResponse> createMessage(@Path("userId") String userId, @Path("conversationId") String conversationId, @Body CreateMessageRequest createMessageRequest);
 
+    @GET("api/users")
+    Flowable<List<User>> fetchUsers();
 }
